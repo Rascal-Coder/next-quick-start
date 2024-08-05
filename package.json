@@ -1,0 +1,46 @@
+{
+  "name": "mahu-resume",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV_PLATFORM=window next dev -p 3001 --experimental-https",
+    "dev:l": "cross-env NODE_ENV_PLATFORM=linux next dev -p 3001 --experimental-https",
+    "build": "cross-env ANALYZE=true next build",
+    "start": "next start -p 3001",
+    "lint": "eslint src --fix --ext .ts,.tsx,.js,.jsx --max-warnings 0",
+    "prepare": "simple-git-hooks",
+    "commit": "ras git-commit",
+    "format": "ras prettier-format",
+    "init-git": "ras init-git-hooks",
+    "commit-verify": "ras git-commit-verify",
+    "lint-staged": "ras lint-staged"
+  },
+  "dependencies": {
+    "immer": "^10.1.1",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.77.8",
+    "zustand": "^4.5.4"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.5",
+    "@rascaljs/cli": "^0.5.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "cross-env": "^7.0.3",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "eslint-config-rascal": "^0.2.4",
+    "lint-staged": "^15.2.8",
+    "postcss": "^8",
+    "simple-git-hooks": "^2.11.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "pnpm commit-verify",
+    "pre-commit": "pnpm lint && pnpm lint-staged "
+  }
+}
